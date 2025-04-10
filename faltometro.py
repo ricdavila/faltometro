@@ -45,7 +45,7 @@ if __name__ == "__main__":
         elif command == 'SHOW':
             
             for disciplina in disciplinas:
-                print("\n" + disciplina.nome)       
+                print("\n" + disciplinas)       
 
         elif command == 'LOAD':
             pass 
