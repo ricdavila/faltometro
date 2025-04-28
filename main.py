@@ -1,8 +1,7 @@
 import os
 import json 
-# salvar e carregar dados em um arquivo de texto
+
 # cálculo da frequência
-# melhorar exibição de disciplinas no comando EXIBIR
 
 CABECALHO = '''
 Comandos disponíveis:
@@ -108,8 +107,15 @@ def exibir_registros(disciplinas):
     # limpa o terminal
     os.system('cls')
     if disciplinas:
+        # contador de disciplinas
+        index_disc = 0
+        # imprime cada disciplina
         for disc, dados in disciplinas.items():
-            print(f'\nNOME: {disc}\nCH: {dados['ch']}h\nFALTAS: {dados['faltas']}h')
+            index_disc += 1
+            print(f'\n[{index_disc}]')
+            print(f'\nDISCIPLINA: {disc}')
+            print(f'\nCARGA HORÁRIA TOTAL: {dados['ch']}h')
+            print(f'\nFALTAS: {dados['faltas']}h')
     else:
         print('\nNenhuma disciplina registrada.')
 
@@ -271,5 +277,3 @@ if __name__ == '__main__':
 
 
         
-
-
