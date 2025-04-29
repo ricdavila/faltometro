@@ -2,9 +2,9 @@
 
 Projeto pessoal feito em **Python** que possibilita um melhor controle do número de faltas em cada uma das suas disciplinas da faculdade. 
 
-Geralmente, é necessário que o aluno tenha no **mínimo** 75% de presença nas aulas de uma disciplina para conquistar a aprovação na mesma. A partir da carga horária total e da quantidade de faltas, é possível calcular se esse requesito está sendo atendido pelo discente ou não. 
+Geralmente, é necessário que o aluno tenha no **mínimo** 75% de presença nas aulas de uma disciplina para conquistar, de fato, a aprovação. A partir da carga horária total e da quantidade de faltas, é possível calcular se esse requesito está sendo atendido pelo discente ou não. 
 
-É melhor acompanhar suas faltas do que ter surpresas ao fim do semestre!
+Utilize o faltômetro e evite surpresas ao fim do semestre!
 
 ## 💾 Instalação 
 
