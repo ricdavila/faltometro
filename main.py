@@ -1,9 +1,6 @@
 import os
 import json 
 
-# cálculo da frequência
-# melhorar exibição de disciplinas no comando EXIBIR
-
 CABECALHO = '''
 Comandos disponíveis:
     - DISCIPLINA : registre novas disciplinas.
@@ -94,8 +91,8 @@ def adicionar_disciplina(disciplinas):
                     break
             break
 
+    # calcula a frequencia (em porcentagem)
     freq = 100 - (faltas / ch * 100)
-    
     # limpa o terminal
     os.system('cls')
     # insere os dados no dicionário
@@ -110,8 +107,16 @@ def exibir_registros(disciplinas):
     # limpa o terminal
     os.system('cls')
     if disciplinas:
+        # contador de disciplinas
+        index_disc = 0
+        # imprime cada disciplina
         for disc, dados in disciplinas.items():
-            print(f'\nNOME: {disc}\nCH: {dados['ch']}h\nFALTAS: {dados['faltas']}h\nFREQUÊNCIA: {dados['frequencia']}%')
+            index_disc += 1
+            print(f'\n[{index_disc}]')
+            print(f'DISCIPLINA: {disc}')
+            print(f'CARGA HORÁRIA TOTAL: {dados['ch']}h')
+            print(f'FALTAS: {dados['faltas']}h')
+            print(f'FREQUÊNCIA: {dados['frequencia']}%')
     else:
         print('\nNenhuma disciplina registrada.')
 
@@ -146,8 +151,11 @@ def adicionar_falta(disciplinas):
         # limpa o terminal
         os.system('cls')
         # atualiza os dados da disciplina
-        disciplinas[disciplina_selecionada]['faltas'] += nova_falta
-        print(f'\nFalta adicionada com sucesso! {nova_falta}h foram adicionadas às {faltas_registradas}h já registradas.')
+        novo_total_faltas = nova_falta + faltas_registradas
+        print(novo_total_faltas, nova_falta, faltas_registradas)
+        disciplinas[disciplina_selecionada]['faltas'] = novo_total_faltas
+        disciplinas[disciplina_selecionada]['frequencia'] = 100 - (novo_total_faltas / disciplinas[disciplina_selecionada]['ch'] * 100)
+        print(f'\nFalta adicionada com sucesso! {nova_falta}h foram adicionadas às {faltas_registradas}h já registradas. Novo total de faltas: {novo_total_faltas}h.')
         # salva localmente a alteração
         salvar_registro(disciplinas)
 
@@ -273,5 +281,3 @@ if __name__ == '__main__':
 
 
         
-
-
