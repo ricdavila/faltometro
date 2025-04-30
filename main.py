@@ -1,6 +1,6 @@
 import os
 import json 
-# salvar e carregar dados em um arquivo de texto
+
 # cálculo da frequência
 # melhorar exibição de disciplinas no comando EXIBIR
 
@@ -93,12 +93,14 @@ def adicionar_disciplina(disciplinas):
                     faltas = float(faltas)
                     break
             break
+
+    freq = 100 - (faltas / ch * 100)
     
     # limpa o terminal
     os.system('cls')
     # insere os dados no dicionário
-    disciplinas[nome] = {'ch': ch, 'faltas': faltas}
-    print(f'\nDisciplina {nome}, de carga horária {ch}h e com {faltas}h de faltas, adicionada com sucesso.')
+    disciplinas[nome] = {'ch': ch, 'faltas': faltas, 'frequencia': freq}
+    print(f'\nDisciplina {nome}, de carga horária {ch}h e com {faltas}h de faltas, adicionada com sucesso. A frequência nessa disciplina é de {freq}%.')
     # salva localmente a alteração
     salvar_registro(disciplinas)
 
@@ -109,7 +111,7 @@ def exibir_registros(disciplinas):
     os.system('cls')
     if disciplinas:
         for disc, dados in disciplinas.items():
-            print(f'\nNOME: {disc}\nCH: {dados['ch']}h\nFALTAS: {dados['faltas']}h')
+            print(f'\nNOME: {disc}\nCH: {dados['ch']}h\nFALTAS: {dados['faltas']}h\nFREQUÊNCIA: {dados['frequencia']}%')
     else:
         print('\nNenhuma disciplina registrada.')
 
