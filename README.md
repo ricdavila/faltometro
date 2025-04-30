@@ -25,7 +25,7 @@ python main.py
 > [!NOTE]
 > Os dados do registro (nomes de disciplinas, suas cargas horárias, suas faltas, etc.) ficarão salvas em um arquivo `registro.txt`, em formato JSON. O registro será **criado e atualizado automaticamente** pelo script no diretório em que ele estiver sendo executado.
 
-## 🗒️ Como usar
+## 📃 Como usar
 
 Uma vez executado o script principal, o programa exibirá a lista de comandos disponíveis para uso. Utilize-os para criar, atualizar e apagar dados do seu registro de dados.
 
