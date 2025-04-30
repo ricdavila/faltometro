@@ -1,35 +1,37 @@
 Escrever comandos disponíveis ao usuário
 comando ← Ler comando inserido pelo usuário
 
-Enquanto comando for diferente de 'sair' faça:
+Enquanto comando for diferente de ('sair') faça:
 
-    Se comando for igual a 'disciplina':
+    Se comando for igual a ('disciplina') faça:
         nome ← Ler nome da disciplina
         carga_horária ← Ler carga horária (em horas)
         faltas ← Ler faltas até o momento (em horas)
+        frequência ← Calcular frequência (em porcentagem)
         Atualizar e salvar banco de dados
 
-    Ou se comando for igual a 'exibir':
+    Ou se comando for igual a ('exibir') faça:
         Escrever banco de dados de disciplinas
 
-    Ou se comando for igual a 'falta':
+    Ou se comando for igual a ('falta') faça:
         Escrever disciplinas registradas no banco de dados
-        disciplina ← Ler disciplina em que ocorreu a falta
+        disciplina ← Ler disciplina selecionada para adição da falta
         falta ← Ler falta (em horas)
+        frequência ← Recalcular frequência (em porcentagem)
         Atualizar e salvar banco de dados
 
-    Ou se comando for igual a 'apagar':
+    Ou se comando for igual a ('apagar') faça:
         Escrever disciplinas passíveis de exclusão
-        alvo ← Ler qual disciplina será excluída
+        alvo ← Ler disciplina selecionada para exclusão
         Apagar dados da disciplina alvo
         Atualizar e salvar banco de dados
     
-    Ou se comando for igual a 'resetar':
+    Ou se comando for igual a ('resetar') faça:
         confirmação ← Ler se o usuário tem certeza da exclusão de todos os dados
-        Se confirmação for verdadeiro:
+        Se (confirmação) for (verdadeiro) faça:
             Apagar banco de dados
         
-    Ou se comando for desconhecido:
+    Ou se comando for desconhecido faça:
         Escrever que o comando não foi reconhecido
     
     comando ← Ler comando inserido pelo usuário
