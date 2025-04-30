@@ -18,12 +18,12 @@ cd faltometro
 ```
 python main.py
 ```
-3. Pronto! O programa está pronto para ser utilizado. Leia as instruções e adicione as disciplinas e seus dados pelo terminnal.
+3. Pronto! O programa está pronto para ser utilizado. Leia as instruções e adicione as disciplinas e seus dados pelo terminal.
 
 4. Para encerrar a execução do programa, digite `SAIR`.
 
 > [!NOTE]
-> Os dados do registro (nomes de disciplinas, suas cargas horárias, suas faltas, etc.) ficarão salvas em um arquivo `registro.txt`, em formato JSON. O registro será **criado e atualizado automaticamente** pelo script no diretório em que ele estiver sendo executado.
+> Os dados do registro (nomes de disciplinas, suas cargas horárias, suas faltas, etc.) ficarão salvas em um arquivo `registros.txt`, em formato JSON. O registro será **criado e atualizado automaticamente** pelo script no diretório em que ele estiver sendo executado.
 
 ## 📃 Como usar
 
@@ -33,7 +33,7 @@ Uma vez executado o script principal, o programa exibirá a lista de comandos di
 - `EXIBIR` : digite esse comando para visualizar o seu registro de dados. As disciplinas e suas respectivas cargas horárias, faltas e presenças (%) serão exibidas.
 - `FALTA` : comando usado para atualizar o registro de uma disciplina. Insira em que disciplina a falta ocorreu e digite as horas a que essa falta corresponde.
 - `APAGAR` : atualize o registro apagando por completo uma disciplina e os seus dados. Use o comando e digite o nome da disciplina a ser deletada.
-- `RESETAR` : apague o registro de dados, incluindo todas as disciplinas, faltas, etc. O arquivo `registro.txt` terá todos os dados apagados.
+- `RESETAR` : apague o registro de dados, incluindo todas as disciplinas, faltas, etc. O arquivo `registros.txt` terá todos os dados apagados.
 
 ## ⚙️ Funcionamento
 
