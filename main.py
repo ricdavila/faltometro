@@ -1,6 +1,7 @@
 import os
 import json 
 
+
 CABECALHO = '''
 Comandos disponíveis:
     - DISCIPLINA : registre novas disciplinas.
@@ -90,9 +91,9 @@ def adicionar_disciplina(disciplinas):
                     faltas = float(faltas)
                     break
             break
-
+    
     # calcula a frequencia (em porcentagem)
-    freq = 100 - (faltas / ch * 100)
+    freq = round(100 - (faltas / ch * 100), 2)
     # limpa o terminal
     os.system('cls')
     # insere os dados no dicionário
@@ -130,10 +131,12 @@ def adicionar_falta(disciplinas):
     '''
     # limpa o terminal
     os.system('cls')
-
-    # recebe uma disciplina selecionada pelo usuário
     print('\n>>> Preparando ADIÇÃO DE FALTA...')
+    # recebe uma disciplina selecionada pelo usuário
     disciplina_selecionada = selecionar_disciplina(disciplinas)
+
+    
+
     if disciplina_selecionada:
         # verifica quantas faltas já estão registradas
         faltas_registradas = disciplinas[disciplina_selecionada]['faltas']
@@ -152,9 +155,8 @@ def adicionar_falta(disciplinas):
         os.system('cls')
         # atualiza os dados da disciplina
         novo_total_faltas = nova_falta + faltas_registradas
-        print(novo_total_faltas, nova_falta, faltas_registradas)
         disciplinas[disciplina_selecionada]['faltas'] = novo_total_faltas
-        disciplinas[disciplina_selecionada]['frequencia'] = 100 - (novo_total_faltas / disciplinas[disciplina_selecionada]['ch'] * 100)
+        disciplinas[disciplina_selecionada]['frequencia'] = round(100 - (novo_total_faltas / disciplinas[disciplina_selecionada]['ch'] * 100), 2)
         print(f'\nFalta adicionada com sucesso! {nova_falta}h foram adicionadas às {faltas_registradas}h já registradas. Novo total de faltas: {novo_total_faltas}h.')
         # salva localmente a alteração
         salvar_registro(disciplinas)
@@ -215,7 +217,6 @@ def resetar_registro(disciplinas):
         print('\nNão há nenhum dado registrado, impossível resetar.')
 
 
-
 def selecionar_disciplina(disciplinas) -> str:
     '''
     Sistema que permite o usuário selecionar uma disciplina já registrada.
@@ -229,7 +230,7 @@ def selecionar_disciplina(disciplinas) -> str:
     usuário for inválido.
     '''
     # limpa o terminal
-    os.system('cls')
+    #os.system('cls')
 
     # verifica se existem disciplinas registradas
     if disciplinas:
@@ -278,6 +279,3 @@ def carregar_registro():
 
 if __name__ == '__main__':
     main()
-
-
-        
