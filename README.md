@@ -6,6 +6,8 @@ Geralmente, é necessário que o aluno tenha no **mínimo** 75% de presença nas
 
 Utilize o faltômetro e evite surpresas ao fim do semestre!
 
+![screenshot](https://github.com/ricdavila/faltometro/blob/02aca63e253213a498cc24e61c4d8837bf7ffd67/imgs/program_screenshot.png)
+
 ## 💾 Instalação 
 
 1. Clone o repositório:
