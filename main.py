@@ -2,7 +2,9 @@ import os
 import json 
 
 
-CABECALHO = '''
+def print_menu():
+
+    cabecalho = '''
 Comandos disponíveis:
     - DISCIPLINA : registre novas disciplinas.
     - EXIBIR : exibe as disciplinas registradas e seus respectivos dados.
@@ -11,7 +13,7 @@ Comandos disponíveis:
     - RESETAR : apaga todos os registros do banco de dados.
     - SAIR : terminar programa.
 '''
-
+    print(cabecalho)
 
 def main():
     '''
@@ -27,7 +29,7 @@ def main():
         print('\n>>> [registros.txt] Nenhum registro anterior encontrado.')
     
     # cabeçalho do programa
-    print(CABECALHO)
+    print_menu()
 
     # input do usuário
     comando = input('\nDigite aqui: ').upper()
@@ -40,7 +42,7 @@ def main():
         elif comando == 'EXIBIR':
             exibir_registros(disciplinas)
         elif comando == 'FALTA':
-            adicionar_falta(disciplinas)
+            adicionar_falta(disciplinas)  
         elif comando == 'APAGAR':
             apagar_registro(disciplinas)
         elif comando == 'RESETAR':
@@ -50,7 +52,7 @@ def main():
             print(f'\n[ERRO] Comando não reconhecido: {comando}')
         
         # exibe novamente o cabeçalho e o input
-        print(CABECALHO)
+        print_menu()
         comando = input('\nDigite aqui: ').upper()
         # limpa o terminal
         os.system('cls')
@@ -94,11 +96,13 @@ def adicionar_disciplina(disciplinas):
     
     # calcula a frequencia (em porcentagem)
     freq = round(100 - (faltas / ch * 100), 2)
+    # calcula o máximo de faltas permitidas (em horas)
+    max_faltas = ch * 0.25
     # limpa o terminal
     os.system('cls')
     # insere os dados no dicionário
-    disciplinas[nome] = {'ch': ch, 'faltas': faltas, 'frequencia': freq}
-    print(f'\nDisciplina {nome}, de carga horária {ch}h e com {faltas}h de faltas, adicionada com sucesso. A frequência nessa disciplina é de {freq}%.')
+    disciplinas[nome] = {'ch': ch, 'faltas': faltas, 'frequencia': freq, 'max_faltas': max_faltas}
+    print(f'\nDisciplina {nome}, de carga horária {ch}h e com {faltas}h de faltas, adicionada com sucesso. A frequência nessa disciplina é de {freq}%. O máximo de faltas permitidas nessa disciplina é de {max_faltas}h (25% do total da C.H.)')
     # salva localmente a alteração
     salvar_registro(disciplinas)
 
@@ -117,6 +121,7 @@ def exibir_registros(disciplinas):
             print(f'DISCIPLINA: {disc}')
             print(f'CARGA HORÁRIA TOTAL: {dados['ch']}h')
             print(f'FALTAS: {dados['faltas']}h')
+            print(f'MÁXIMO DE FALTAS: {dados['max_faltas']}h')
             print(f'FREQUÊNCIA: {dados['frequencia']}%')
     else:
         print('\nNenhuma disciplina registrada.')
