@@ -3,6 +3,7 @@ import json
 
 
 def print_menu():
+    '''Imprime o cabeçalho/menu do programa.'''
 
     cabecalho = '''
 Comandos disponíveis:
@@ -13,7 +14,9 @@ Comandos disponíveis:
     - RESETAR : apaga todos os registros do banco de dados.
     - SAIR : terminar programa.
 '''
+
     print(cabecalho)
+
 
 def main():
     '''
